@@ -1,0 +1,33 @@
+services:
+  go2-teleoperation:
+    build:
+      context: ./go2-teleoperation
+    container_name: go2-teleoperation
+    network_mode: host
+    environment:
+      - ROS_DOMAIN_ID=42
+    volumes:
+      - ./go2-teleoperation:/app
+    ports:
+      - "8066:8066"
+    stdin_open: true
+    tty: true
+  mirai:
+
+    build:
+      context: ./mirai
+    container_name: mirai
+    network_mode: host
+    environment:
+      - ROS_DOMAIN_ID=42
+    volumes:
+      - ./mirai:/app
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    stdin_open: true
+    tty: true
