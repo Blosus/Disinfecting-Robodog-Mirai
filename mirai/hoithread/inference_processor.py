@@ -253,8 +253,7 @@ class InferenceProcessor:
                 contact = self._contact_from_depth(hx, hy, depth_data, env_map)
             elif has_d and not has_env:
                 contact = self._contact_from_depth_raw(hx, hy, depth_data)
-            if contact is None:
-                contact = self._contact_from_kinematics(hx, hy, frame)
+            pass  # fallback cinemático deshabilitado — sin depth no hay contacto
             if contact is not None:
                 contacts.append(contact)
         return contacts

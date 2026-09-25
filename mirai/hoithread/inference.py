@@ -142,8 +142,7 @@ class InferenceThread(threading.Thread):
                 )
 
             # ── MÉTODO 3: fallback cinemático (RGB sin depth) ──────────
-            if contact is None:
-                contact = self._contact_from_kinematics(hx, hy, frame)
+            pass  # fallback cinemático deshabilitado — sin depth no hay contacto
 
             if contact is not None:
                 contacts.append(contact)
