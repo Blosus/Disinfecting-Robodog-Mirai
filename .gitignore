@@ -1,0 +1,9 @@
+# Bases de datos locales
+**/instance/*.db
+
+# Python
+__pycache__/
+*.pyc
+
+# Docker
+*.log
